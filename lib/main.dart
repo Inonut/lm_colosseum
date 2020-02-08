@@ -1,10 +1,9 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:lm_colosseum/models/language.enum.dart';
-import 'package:lm_colosseum/models/route.enum.dart';
 import 'package:lm_colosseum/models/theme.enum.dart';
-import 'package:responsive_builder/responsive_builder.dart';
 
 import 'blocs/intern.bloc.dart';
 import 'blocs/theme.bloc.dart';
@@ -34,34 +33,19 @@ class App extends StatelessWidget {
 
   Widget _buildApp(locale, theme) {
     return MaterialApp(
-      title: 'Colosseum',
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: [
-        LanguageEnum.EN.asObject,
-        LanguageEnum.RO.asObject,
-      ],
-      theme: theme,
-      locale: locale,
-      builder: (context, child) => child,
-      home: ScreenTypeLayout(
-        mobile: Navigator(
-          onGenerateRoute: generateRouteMobile,
-          initialRoute: RouteEnum.Home.route,
-        ),
-        tablet: Navigator(
-          onGenerateRoute: generateRouteTablet,
-          initialRoute: RouteEnum.Home.route,
-        ),
-        desktop:Navigator(
-          onGenerateRoute: generateRouteTablet,
-          initialRoute: RouteEnum.Home.route,
-        ),
-      ),
-    );
+        title: 'Colosseum',
+        debugShowCheckedModeBanner: false,
+        localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: [
+          LanguageEnum.EN.asObject,
+          LanguageEnum.RO.asObject,
+        ],
+        theme: theme,
+        locale: locale,
+        onGenerateRoute: generateRoute);
   }
 }

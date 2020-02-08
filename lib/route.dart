@@ -5,15 +5,7 @@ import 'models/route.enum.dart';
 import 'screens/home.screen.dart';
 import 'screens/settings.screen.dart';
 
-Route<dynamic> generateRouteTablet(RouteSettings settings) {
-  if (settings.name == RouteEnum.Home.route) {
-    return _getPageRoute(HomeScreen(), settings);
-  }
-
-  return _getPageRoute(HomeScreen(), settings);
-}
-
-Route<dynamic> generateRouteMobile(RouteSettings settings) {
+Route<dynamic> generateRoute(RouteSettings settings) {
   if (settings.name == RouteEnum.Home.route) {
     return _getPageRoute(HomeScreen(), settings);
   } else if (settings.name == RouteEnum.Settings.route) {
